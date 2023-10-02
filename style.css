@@ -1,0 +1,155 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* padding and margin are included in the width and height */
+}
+
+body {
+    /* gradient doesnt support background color */
+    background-image: linear-gradient(120deg, #606f62, #81665f); 
+    color: white;
+    /* easy to read, no fancy alterations = sans serif fonts */
+    font-family: "Poppins", sans-serif;
+    /* Specifying 100vh is equivalent to occupying 100% of entire visible screen height. */
+    min-height: 100vh;
+}
+
+header {
+    /* Rem (short for “root-em”) units dictate an element's font size relative to the size of the root element (aka: rem is the whole HTML doc). */
+    font-size: 1.5rem;
+}
+
+header,
+form {
+    min-height: 20vh;
+    /* just to center items horizontally and vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form input,
+form button {
+    padding: 0.5rem;
+    font-size: 2rem;
+    border: none;
+    background: white;
+}
+
+form button {
+    color: #000000;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+form button:hover {
+    background: #000000;
+    color: white;
+}
+
+.todo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*  
+    Viewport units are calculated as a percentage of the browser's current viewport size. 
+    Percentage units on the other hand are calculated as a percentage of the parent element, 
+    which may be different than the viewport size. 
+*/
+.todo-list {
+    min-width: 30%;
+    list-style: none;
+}
+
+.todo {
+    margin: 0.5rem;
+    background: white;
+    color: black;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.5s ease;
+}
+
+.todo li {
+    flex: 1;
+}
+
+.trash-btn,
+.complete-btn {
+    background: #ff6f47;
+    color: white;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.complete-btn {
+    background: rgb(73, 204, 73);
+}
+
+.todo-item {
+    padding: 0rem, 0.5rem;
+}
+
+.fa-trash,
+.fa-check {
+    pointer-events: none;
+}
+
+.completed {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+.fall {
+    /* translateY is used to reposition the element along the vertical axis, rotateZ is self-explanatory */
+    transform: translateY(8rem) rotateZ(20deg);
+    opacity: 0;
+}
+
+select {
+    /* remove default appearance in all web browsers, outline and border too */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    border: none;
+}
+
+.select {
+    margin: 1rem;
+    /* the default position + left, top, right and bottom movements */
+    position: relative;
+    overflow: hidden;
+}
+
+select {
+    color: #ff6f47;
+    width: 10rem;
+    cursor: pointer;
+    padding: 1rem;
+}
+
+.select::after {
+    content: "\25BC";
+    /* position based on its parent + left, top, right and bottom movements */
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #ff6f47;
+    padding: 0.7rem;
+    pointer-events: none;
+    transition: all 0.3 ease;
+}
+
+/* ::after is used to put as the last child of an element, normally for cosmetic */
+.select:hover::after {
+    background: white;
+    color: #ff6f47;
+}
